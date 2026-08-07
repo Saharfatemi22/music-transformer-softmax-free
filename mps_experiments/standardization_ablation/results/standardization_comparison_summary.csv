@@ -1,0 +1,5 @@
+attention_type,loss_type,standardize_qk,final_val_loss,delta_vs_baseline,pct_change,epoch_first_below_random_chance,steady_state_s_per_epoch,total_epochs
+gaussian,ce,False,5.2457,0.0,0.0,42,17.54,50
+gaussian,ce,True,5.1529,-0.0928,-1.77,26,17.0,50
+cosine,ce,False,5.1474,0.0,0.0,23,8.22,50
+cosine,ce,True,5.092,-0.0554,-1.08,13,7.99,50

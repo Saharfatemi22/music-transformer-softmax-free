@@ -1,0 +1,60 @@
+CosFormer + CE+NTL Loss Training Results
+=========================================
+Attention type : cosformer (softmax-free, ReLU + cosine re-weighting)
+Loss type      : ce+ntl (cross-entropy + λ·MSE on ordinal tokens, λ=0.5)
+Dataset        : MAESTRO v3.0.0
+Train chunks   : 500
+Val chunks     : 100
+d_model        : 64
+n_layers       : 2
+n_heads        : 4
+d_ff           : 256
+batch_size     : 8
+max_epochs     : 20
+Parameters     : 112,128
+Device         : CPU
+
+Note: CE+NTL loss = CE (all tokens) + 0.5 × MSE (ordinal tokens only).
+Loss scale is CE-dominated (~5.3+ at random chance) — directly comparable
+to the CE-only cosformer run. Random-chance baseline (log(196)) = 5.2983.
+
+Epoch | Train Loss | Val Loss  | Time (s)
+------+------------+-----------+---------
+    1 |   5.3801   |  5.3557   |    7.1
+    2 |   5.3788   |  5.3551   |    7.0
+    3 |   5.3784   |  5.3540   |    7.0
+    4 |   5.3775   |  5.3525   |    7.0
+    5 |   5.3753   |  5.3505   |    7.3
+    6 |   5.3742   |  5.3482   |    7.8
+    7 |   5.3729   |  5.3454   |    8.6
+    8 |   5.3693   |  5.3421   |    9.0
+    9 |   5.3673   |  5.3385   |   10.5
+   10 |   5.3638   |  5.3344   |   11.5
+   11 |   5.3605   |  5.3299   |   11.5
+   12 |   5.3573   |  5.3251   |   11.6
+   13 |   5.3526   |  5.3198   |   11.9
+   14 |   5.3488   |  5.3141   |   11.9
+   15 |   5.3429   |  5.3081   |   11.9
+   16 |   5.3380   |  5.3016   |   11.9
+   17 |   5.3334   |  5.2952   |   11.8
+   18 |   5.3285   |  5.2890   |   11.6
+   19 |   5.3225   |  5.2830   |   11.9
+   20 |   5.3186   |  5.2771   |   11.6
+
+Summary
+-------
+Best val loss  : 5.2771  (epoch 20)
+Final train loss: 5.3186  (epoch 20)
+Total val drop : 5.3557 → 5.2771  (Δ = -0.0786)
+Total train drop: 5.3801 → 5.3186  (Δ = -0.0615)
+Total time     : ~3.5 minutes
+Avg epoch time : ~10.1 seconds
+
+Comparison vs CosFormer CE baseline:
+  CosFormer CE  epoch 1 val: 5.4565  epoch 20 val: 5.3684  Δ = -0.0881
+  CosFormer NTL epoch 1 val: 5.3557  epoch 20 val: 5.2771  Δ = -0.0786
+
+NTL starts LOWER (5.3557 vs 5.4565) and ends LOWER (5.2771 vs 5.3684).
+CosFormer + NTL achieves val loss BELOW random chance (5.2983) by epoch 17.
+Loss is decreasing every epoch — no divergence, no instability.
+Best checkpoint: checkpoints/best.pt

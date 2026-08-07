@@ -1,0 +1,61 @@
+# ─────────────────────────────────────────────
+# configs/default.yaml
+# All hyperparameters in one place.
+# Change attention_type to switch between modes.
+# ─────────────────────────────────────────────
+
+# ── Data ──────────────────────────────────────
+dataset: "jsb"          # "jsb" (tiny, no download) or "maestro"
+data_dir: "data/maestro-v3.0.0"   # only used when dataset = "maestro"
+seq_len: 512            # tokens per training sample
+                        # Paper 5 (REMI) uses 512 as segment length
+max_train_chunks: 500   # cap training chunks (null = use all). Set low for fast CPU runs.
+max_val_chunks: 100     # cap validation chunks
+
+# ── Attention (YOUR RESEARCH VARIABLE) ───────
+# Change this to switch your attention mechanism:
+#   "gaussian"   → SOFT paper: exp(-‖Q−K‖²)  [distance-based, no softmax]
+#   "cosine"     → Cottention: L2-norm dot product  [no softmax]
+#   "cosformer"  → CosFormer: ReLU + cosine reweight  [no softmax]
+attention_type: "gaussian"
+
+# Gaussian attention specific (SOFT paper)
+n_bottleneck: 49        # m in SOFT paper: number of representative tokens
+newton_steps: 20        # iterations for Moore-Penrose inverse
+
+# Cosine attention specific (Cottention paper)
+cosine_m_init: 0.5      # initial value of learned stability scalar m
+
+# Rogue-dimension ablation (Timkey & van Schijndel, EMNLP 2021) — OPTIONAL, OFF by default.
+# When true, per-token mean/std standardises Q and K (across d_model, before the
+# head split) prior to the Gaussian kernel / cosine similarity. Only affects
+# "gaussian" and "cosine" attention_type; no effect on "cosformer".
+standardize_qk: false
+
+# ── Model ─────────────────────────────────────
+d_model: 64             # embedding dimension  (reduced for CPU speed)
+n_heads: 4              # number of attention heads
+n_layers: 2             # number of transformer layers  (reduced for CPU speed)
+d_ff: 256               # feedforward hidden size (4 × d_model)
+dropout: 0.1
+
+# ── Training ──────────────────────────────────
+batch_size: 8
+learning_rate: 0.0001
+max_epochs: 20
+warmup_steps: 1000      # linear warmup for lr scheduler
+grad_clip: 1.0          # gradient clipping (prevents exploding gradients)
+save_dir: "checkpoints"
+log_every: 50           # log loss every N batches
+
+# ── Loss function (SECOND RESEARCH VARIABLE) ──
+# "ce"     → cross-entropy only (baseline)
+# "mse"    → MSE for ordinal tokens + CE for structural tokens
+# "ce+ntl" → CE + λ·MSE on ordinal tokens (Number Token Loss, Paper 3)
+loss_type: "ce"
+ntl_lambda: 0.5         # weight for NTL term when loss_type = "ce+ntl"
+
+# ── Generation ────────────────────────────────
+temperature: 1.0        # sampling temperature (higher = more random)
+top_k: 20               # top-k sampling (Paper 5 uses top-k)
+gen_length: 512         # number of tokens to generate

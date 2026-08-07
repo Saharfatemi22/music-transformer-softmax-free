@@ -1,0 +1,4 @@
+config,label,val_loss_ep50,val_loss_ep100,delta_ep50_to_ep100,still_decreasing_at_ep100,total_minutes
+gaussian_ce,Gaussian CE,5.2156,5.0361,-0.1795,True,77.9
+cosine_ce,Cosine CE,5.2637,5.0917,-0.172,True,26.5
+cosformer_ce,CosFormer CE,5.2019,5.0254,-0.1765,True,13.1

@@ -1,0 +1,13 @@
+group,checkpoint,logged_val_loss_own_objective,pure_ce_reevaluated,estimated_ntl_term_contribution
+gaussian_ce,gaussian_ce,5.0361,5.0361,-0.0
+gaussian_ce,gaussian_ce_seed1,4.9847,4.9847,-0.0
+gaussian_ce,gaussian_ce_seed2,4.8896,4.8896,-0.0
+gaussian_ntl,gaussian_ntl_seed0,5.0704,5.0361,0.0343
+gaussian_ntl,gaussian_ntl_seed1,5.0205,4.9847,0.0357
+gaussian_ntl,gaussian_ntl_seed2,4.9241,4.8893,0.0348
+cosformer_ce,cosformer_ce,5.0254,5.0254,0.0
+cosformer_ce,cosformer_ce_seed1,4.9963,4.9963,-0.0
+cosformer_ce,cosformer_ce_seed2,4.8826,4.8826,-0.0
+cosformer_ntl,cosformer_ntl_seed0,5.0597,5.0254,0.0343
+cosformer_ntl,cosformer_ntl_seed1,5.0322,4.9963,0.0359
+cosformer_ntl,cosformer_ntl_seed2,4.917,4.8824,0.0346

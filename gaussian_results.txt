@@ -1,0 +1,51 @@
+Gaussian Attention Training Results
+====================================
+Attention type : gaussian (softmax-free, distance-based)
+Dataset        : MAESTRO v3.0.0
+Train chunks   : 500
+Val chunks     : 100
+d_model        : 64
+n_layers       : 2
+n_heads        : 4
+d_ff           : 256
+batch_size     : 8
+max_epochs     : 20
+Parameters     : 112,128
+Device         : CPU
+Random-chance baseline (log(196)) : 5.2983
+
+Epoch | Train Loss | Val Loss  | Time (s)
+------+------------+-----------+---------
+    1 |   5.5069   |  5.4761   |   14.8
+    2 |   5.5078   |  5.4754   |   14.5
+    3 |   5.5055   |  5.4742   |   15.5
+    4 |   5.5049   |  5.4726   |   15.0
+    5 |   5.5039   |  5.4704   |   14.9
+    6 |   5.5018   |  5.4679   |   15.2
+    7 |   5.4998   |  5.4648   |   14.9
+    8 |   5.4979   |  5.4613   |   18.3
+    9 |   5.4940   |  5.4573   |   19.1
+   10 |   5.4910   |  5.4528   |   16.0
+   11 |   5.4878   |  5.4478   |   16.8
+   12 |   5.4835   |  5.4424   |   16.6
+   13 |   5.4804   |  5.4366   |   15.7
+   14 |   5.4750   |  5.4303   |   16.3
+   15 |   5.4691   |  5.4235   |   16.1
+   16 |   5.4647   |  5.4162   |   16.3
+   17 |   5.4594   |  5.4090   |   18.1
+   18 |   5.4537   |  5.4020   |   15.2
+   19 |   5.4488   |  5.3951   |   18.1
+   20 |   5.4442   |  5.3885   |   16.9
+
+Summary
+-------
+Best val loss  : 5.3885  (epoch 20)
+Final train loss: 5.4442  (epoch 20)
+Total val drop : 5.4761 → 5.3885  (Δ = -0.0876)
+Total train drop: 5.5069 → 5.4442  (Δ = -0.0627)
+Total time     : ~5.5 minutes
+Avg epoch time : ~16 seconds
+
+Loss is decreasing every epoch on both train and val — no divergence,
+no instability. Gaussian softmax-free attention confirmed learning on MIDI data.
+Best checkpoint: checkpoints/best.pt

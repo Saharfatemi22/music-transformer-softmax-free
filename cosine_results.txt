@@ -1,0 +1,59 @@
+Cosine Attention Training Results
+====================================
+Attention type : cosine (softmax-free, L2-normalised dot product)
+Dataset        : MAESTRO v3.0.0
+Train chunks   : 500
+Val chunks     : 100
+d_model        : 64
+n_layers       : 2
+n_heads        : 4
+d_ff           : 256
+batch_size     : 8
+max_epochs     : 20
+Parameters     : 112,136
+Device         : CPU
+Random-chance baseline (log(196)) : 5.2983
+
+Epoch | Train Loss | Val Loss  | Time (s)
+------+------------+-----------+---------
+    1 |   5.4924   |  5.4681   |    6.7
+    2 |   5.4919   |  5.4675   |    6.8
+    3 |   5.4904   |  5.4667   |    6.8
+    4 |   5.4903   |  5.4654   |    6.7
+    5 |   5.4898   |  5.4638   |    7.6
+    6 |   5.4877   |  5.4619   |    6.9
+    7 |   5.4856   |  5.4597   |    6.7
+    8 |   5.4841   |  5.4570   |    6.7
+    9 |   5.4822   |  5.4541   |    6.6
+   10 |   5.4798   |  5.4508   |    6.7
+   11 |   5.4783   |  5.4471   |    6.8
+   12 |   5.4750   |  5.4431   |    6.7
+   13 |   5.4703   |  5.4388   |    6.7
+   14 |   5.4679   |  5.4341   |    6.7
+   15 |   5.4641   |  5.4292   |    6.7
+   16 |   5.4608   |  5.4238   |    6.7
+   17 |   5.4568   |  5.4185   |    6.6
+   18 |   5.4534   |  5.4133   |    6.9
+   19 |   5.4480   |  5.4083   |    7.2
+   20 |   5.4454   |  5.4034   |    6.9
+
+Summary
+-------
+Best val loss  : 5.4034  (epoch 20)
+Final train loss: 5.4454  (epoch 20)
+Total val drop : 5.4681 → 5.4034  (Δ = -0.0647)
+Total train drop: 5.4924 → 5.4454  (Δ = -0.0470)
+Total time     : ~2.5 minutes
+Avg epoch time : ~6.8 seconds
+
+Comparison vs Gaussian
+-----------------------
+                    Gaussian    Cosine
+Epoch 1 val loss:   5.4761      5.4681   ← cosine starts lower
+Epoch 20 val loss:  5.3885      5.4034   ← gaussian ends lower
+Total val drop:     -0.0876     -0.0647  ← gaussian drops more
+Avg epoch time:     ~16s        ~6.8s    ← cosine is 2.4× faster
+
+Loss is decreasing every epoch on both train and val — no divergence,
+no instability. Cosine softmax-free attention confirmed learning on MIDI data.
+Best checkpoint: checkpoints/best.pt

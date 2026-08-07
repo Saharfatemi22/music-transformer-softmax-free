@@ -1,0 +1,29 @@
+Device: cpu
+Loading MAESTRO test split (full, uncapped)...
+Loading maestro dataset (test split)...
+  Loaded 177 pieces → 11451 chunks of length 512
+
+Evaluating gaussian_ce ...
+  epoch (checkpoint): 100
+  val_loss (recorded @ training time): 5.0361  (perplexity 153.87)
+  test_loss (this evaluation):          5.0457  (perplexity 155.35)
+  val -> test gap: +0.0096
+  eval time: 112.9s over 11451 test chunks
+
+Evaluating cosine_ce ...
+  epoch (checkpoint): 100
+  val_loss (recorded @ training time): 5.0917  (perplexity 162.67)
+  test_loss (this evaluation):          5.0986  (perplexity 163.78)
+  val -> test gap: +0.0069
+  eval time: 48.8s over 11451 test chunks
+
+Evaluating cosformer_ce ...
+  epoch (checkpoint): 100
+  val_loss (recorded @ training time): 5.0254  (perplexity 152.23)
+  test_loss (this evaluation):          5.0347  (perplexity 153.66)
+  val -> test gap: +0.0093
+  eval time: 89.2s over 11451 test chunks
+
+Wrote /Users/sahar/Downloads/Transformers softmax free project/music_transformer/mps_experiments/test_evaluation/results/test_set_summary.csv
+
+Done. No existing checkpoint, log, result, or plot file was modified.

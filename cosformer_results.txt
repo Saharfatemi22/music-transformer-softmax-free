@@ -1,0 +1,71 @@
+CosFormer Attention Training Results
+====================================
+Attention type : cosformer (softmax-free, ReLU + cosine re-weighting)
+Dataset        : MAESTRO v3.0.0
+Train chunks   : 500
+Val chunks     : 100
+d_model        : 64
+n_layers       : 2
+n_heads        : 4
+d_ff           : 256
+batch_size     : 8
+max_epochs     : 20
+Parameters     : 112,128
+Device         : CPU
+Random-chance baseline (log(196)) : 5.2983
+
+Epoch | Train Loss | Val Loss  | Time (s)
+------+------------+-----------+---------
+    1 |   5.5191   |  5.4565   |   10.4
+    2 |   5.5190   |  5.4557   |   10.5
+    3 |   5.5165   |  5.4546   |   10.5
+    4 |   5.5152   |  5.4529   |   10.4
+    5 |   5.5150   |  5.4507   |   10.3
+    6 |   5.5121   |  5.4481   |   10.4
+    7 |   5.5103   |  5.4450   |   10.3
+    8 |   5.5084   |  5.4414   |   10.2
+    9 |   5.5045   |  5.4374   |   10.3
+   10 |   5.5020   |  5.4328   |   10.4
+   11 |   5.4987   |  5.4279   |   11.7
+   12 |   5.4943   |  5.4224   |   10.1
+   13 |   5.4890   |  5.4165   |   10.1
+   14 |   5.4838   |  5.4102   |   10.1
+   15 |   5.4808   |  5.4034   |   10.1
+   16 |   5.4743   |  5.3961   |   10.6
+   17 |   5.4674   |  5.3888   |   11.2
+   18 |   5.4613   |  5.3818   |   12.3
+   19 |   5.4562   |  5.3750   |   10.3
+   20 |   5.4514   |  5.3684   |   10.3
+
+Summary
+-------
+Best val loss  : 5.3684  (epoch 20)
+Final train loss: 5.4514  (epoch 20)
+Total val drop : 5.4565 → 5.3684  (Δ = -0.0881)
+Total train drop: 5.5191 → 5.4514  (Δ = -0.0677)
+Total time     : ~3.5 minutes
+Avg epoch time : ~10.5 seconds
+
+Three-Way Comparison (all: 20 epochs, 500 train chunks, d_model=64, n_layers=2)
+----------------------------------------------------------------------------------
+                    Gaussian    Cosine      CosFormer
+Epoch 1 val loss:   5.4761      5.4681      5.4565    ← cosformer starts lowest
+Epoch 20 val loss:  5.3885      5.4034      5.3684    ← cosformer ends lowest
+Total val drop:     -0.0876     -0.0647     -0.0881   ← cosformer drops most
+Avg epoch time:     ~16s        ~6.8s       ~10.5s    ← cosine fastest
+Params:             112,128     112,136     112,128
+
+RANKING (by final val_loss, lower is better):
+  1st: CosFormer  5.3684
+  2nd: Gaussian   5.3885
+  3rd: Cosine     5.4034
+
+RANKING (by speed, lower is better):
+  1st: Cosine     ~6.8s/epoch
+  2nd: CosFormer  ~10.5s/epoch
+  3rd: Gaussian   ~16s/epoch
+
+Loss is decreasing every epoch on both train and val — no divergence,
+no instability. All three softmax-free attention mechanisms confirmed
+learning on MIDI data.
+Best checkpoint: checkpoints/best.pt

@@ -1,0 +1,29 @@
+Loading MAESTRO validation split (200 chunks, matching training-time val set)...
+Loading maestro dataset (val split)...
+  Loaded 137 pieces → 200 chunks of length 512
+gaussian_ce: ordinal_token_MSE=0.068629
+gaussian_ce_seed1: ordinal_token_MSE=0.071609
+gaussian_ce_seed2: ordinal_token_MSE=0.069804
+  -> gaussian_ce mean=0.070014 std=0.001501
+
+gaussian_ntl_seed0: ordinal_token_MSE=0.068556
+gaussian_ntl_seed1: ordinal_token_MSE=0.071445
+gaussian_ntl_seed2: ordinal_token_MSE=0.069699
+  -> gaussian_ntl mean=0.069900 std=0.001455
+
+cosformer_ce: ordinal_token_MSE=0.068588
+cosformer_ce_seed1: ordinal_token_MSE=0.071974
+cosformer_ce_seed2: ordinal_token_MSE=0.069274
+  -> cosformer_ce mean=0.069945 std=0.001790
+
+cosformer_ntl_seed0: ordinal_token_MSE=0.068522
+cosformer_ntl_seed1: ordinal_token_MSE=0.071805
+cosformer_ntl_seed2: ordinal_token_MSE=0.069182
+  -> cosformer_ntl mean=0.069836 std=0.001737
+
+Wrote ordinal_mse_summary.csv
+
+=== Does CE+NTL training improve ordinal-token (pitch/duration/velocity) MSE? ===
+gaussian: CE-trained ordinal-MSE=0.070014±0.001501  NTL-trained ordinal-MSE=0.069900±0.001455  diff=-0.000114 (-0.2%)  (-0.08x avg std)
+cosformer: CE-trained ordinal-MSE=0.069945±0.001790  NTL-trained ordinal-MSE=0.069836±0.001737  diff=-0.000109 (-0.2%)  (-0.06x avg std)
+Wrote ordinal_mse_verdict.csv

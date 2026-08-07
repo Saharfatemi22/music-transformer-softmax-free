@@ -1,0 +1,6 @@
+config,label,seed0_val_loss,seed1_val_loss,seed2_val_loss,mean_val_loss,std_val_loss
+gaussian_ce,Gaussian CE,5.2156,5.2032,5.0553,5.158,0.0892
+gaussian_ce_standardized,Gaussian CE +std,5.2122,5.202,5.0545,5.1563,0.0882
+cosine_ce,Cosine CE,5.2637,5.2662,5.3169,5.2823,0.03
+cosine_ce_standardized,Cosine CE +std,5.2596,5.2758,5.3188,5.2847,0.0306
+cosformer_ce,CosFormer CE,5.2019,5.2021,5.0443,5.1494,0.0911

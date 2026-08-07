@@ -1,0 +1,16 @@
+config,label,seed,final_val_loss,total_minutes
+gaussian_ce,Gaussian CE,0,5.215565147399903,26.14
+gaussian_ce,Gaussian CE,1,5.203217372894287,12.84
+gaussian_ce,Gaussian CE,2,5.055286273956299,8.13
+gaussian_ce_standardized,Gaussian CE +std,0,5.212187118530274,17.61
+gaussian_ce_standardized,Gaussian CE +std,1,5.202027664184571,11.82
+gaussian_ce_standardized,Gaussian CE +std,2,5.054548740386963,12.64
+cosine_ce,Cosine CE,0,5.263682098388672,5.75
+cosine_ce,Cosine CE,1,5.266232242584229,4.72
+cosine_ce,Cosine CE,2,5.316889533996582,4.56
+cosine_ce_standardized,Cosine CE +std,0,5.2595590972900395,21.64
+cosine_ce_standardized,Cosine CE +std,1,5.27579216003418,37.52
+cosine_ce_standardized,Cosine CE +std,2,5.318795871734619,7.0
+cosformer_ce,CosFormer CE,0,5.2019493293762205,5.04
+cosformer_ce,CosFormer CE,1,5.202110614776611,4.93
+cosformer_ce,CosFormer CE,2,5.04428544998169,4.93

@@ -1,0 +1,7 @@
+attention_type,seed,checkpoint_dir,val_loss_ep100,total_minutes
+gaussian,0,gaussian_ce,5.03609146118164,77.9
+gaussian,1,gaussian_ce_seed1,4.9846875,25.6
+gaussian,2,gaussian_ce_seed2,4.889553737640381,36.6
+cosformer,0,cosformer_ce,5.025405654907226,13.1
+cosformer,1,cosformer_ce_seed1,4.996327571868896,11.9
+cosformer,2,cosformer_ce_seed2,4.882582950592041,8.0

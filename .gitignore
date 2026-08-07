@@ -1,0 +1,26 @@
+# Trained model checkpoints (large binary files, not needed to reproduce
+# the analysis; all results are captured in the CSVs, plots, and findings
+# docs under each experiment folder, which ARE tracked)
+*.pt
+checkpoints/
+
+# MAESTRO MIDI dataset (large, publicly downloadable from
+# https://magenta.tensorflow.org/datasets/maestro; see CLAUDE.md/README.md)
+data/maestro-v3.0.0/
+
+# Third-party copyrighted paper PDFs (cited in paper/manuscript.md, not
+# redistributed)
+daniel files/
+useful files/
+
+# Unrelated personal project file
+Project song.band/
+
+# Python
+__pycache__/
+*.pyc
+
+# OS / editor
+.DS_Store
+.claude/
+*.Rhistory

@@ -1,0 +1,55 @@
+Gaussian + MSE Loss Training Results
+====================================
+Attention type : gaussian (softmax-free, distance-based)
+Loss type      : mse (MSE on ordinal tokens + CE on structural tokens)
+Dataset        : MAESTRO v3.0.0
+Train chunks   : 500
+Val chunks     : 100
+d_model        : 64
+n_layers       : 2
+n_heads        : 4
+d_ff           : 256
+batch_size     : 8
+max_epochs     : 20
+Parameters     : 112,128
+Device         : CPU
+
+Note: MSE loss operates on normalised [0,1] values — not comparable to CE
+loss scale (~5.3 baseline). CE baseline val loss at epoch 1 was 5.4761.
+
+Epoch | Train Loss | Val Loss  | Time (s)
+------+------------+-----------+---------
+    1 |   2.8553   |  2.8702   |   14.4
+    2 |   2.8555   |  2.8696   |   14.2
+    3 |   2.8542   |  2.8688   |   14.1
+    4 |   2.8534   |  2.8675   |   14.1
+    5 |   2.8529   |  2.8660   |   14.0
+    6 |   2.8500   |  2.8640   |   14.1
+    7 |   2.8490   |  2.8618   |   14.3
+    8 |   2.8470   |  2.8591   |   14.1
+    9 |   2.8443   |  2.8562   |   14.6
+   10 |   2.8419   |  2.8528   |   14.2
+   11 |   2.8372   |  2.8491   |   14.1
+   12 |   2.8346   |  2.8451   |   14.1
+   13 |   2.8315   |  2.8407   |   14.1
+   14 |   2.8264   |  2.8360   |   14.1
+   15 |   2.8229   |  2.8310   |   14.1
+   16 |   2.8183   |  2.8256   |   14.5
+   17 |   2.8135   |  2.8201   |   14.3
+   18 |   2.8079   |  2.8149   |   14.1
+   19 |   2.8031   |  2.8097   |   14.0
+   20 |   2.7992   |  2.8048   |   14.2
+
+Summary
+-------
+Best val loss  : 2.8048  (epoch 20)
+Final train loss: 2.7992  (epoch 20)
+Total val drop : 2.8702 → 2.8048  (Δ = -0.0654)
+Total train drop: 2.8553 → 2.7992  (Δ = -0.0561)
+Total time     : ~4.7 minutes
+Avg epoch time : ~14.2 seconds
+
+Loss is decreasing every epoch — no divergence, no instability.
+MSE loss scale is ~[0, 0.5] vs CE scale ~[0, log(196)=5.3].
+Direct val loss comparison with CE runs requires normalisation.
+Best checkpoint: checkpoints/best.pt

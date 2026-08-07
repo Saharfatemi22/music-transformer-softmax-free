@@ -1,0 +1,13 @@
+attention_type,loss_type,checkpoint,logged_val_loss_own_objective,pure_ce_reevaluated
+gaussian,ce,gaussian_ce,5.0361,5.0361
+gaussian,ce,gaussian_ce_seed1,4.9847,4.9847
+gaussian,ce,gaussian_ce_seed2,4.8896,4.8896
+gaussian,ce+ntl,gaussian_ntl_seed0,5.0704,5.0361
+gaussian,ce+ntl,gaussian_ntl_seed1,5.0205,4.9847
+gaussian,ce+ntl,gaussian_ntl_seed2,4.9241,4.8893
+cosformer,ce,cosformer_ce,5.0254,5.0254
+cosformer,ce,cosformer_ce_seed1,4.9963,4.9963
+cosformer,ce,cosformer_ce_seed2,4.8826,4.8826
+cosformer,ce+ntl,cosformer_ntl_seed0,5.0597,5.0254
+cosformer,ce+ntl,cosformer_ntl_seed1,5.0322,4.9963
+cosformer,ce+ntl,cosformer_ntl_seed2,4.917,4.8824

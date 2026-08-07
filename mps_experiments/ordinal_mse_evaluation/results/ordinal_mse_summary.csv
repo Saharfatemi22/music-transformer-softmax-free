@@ -1,0 +1,13 @@
+group,checkpoint,ordinal_token_mse
+gaussian_ce,gaussian_ce,0.068629
+gaussian_ce,gaussian_ce_seed1,0.071609
+gaussian_ce,gaussian_ce_seed2,0.069804
+gaussian_ntl,gaussian_ntl_seed0,0.068556
+gaussian_ntl,gaussian_ntl_seed1,0.071445
+gaussian_ntl,gaussian_ntl_seed2,0.069699
+cosformer_ce,cosformer_ce,0.068588
+cosformer_ce,cosformer_ce_seed1,0.071974
+cosformer_ce,cosformer_ce_seed2,0.069274
+cosformer_ntl,cosformer_ntl_seed0,0.068522
+cosformer_ntl,cosformer_ntl_seed1,0.071805
+cosformer_ntl,cosformer_ntl_seed2,0.069182

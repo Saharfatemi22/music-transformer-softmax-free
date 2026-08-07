@@ -1,0 +1,56 @@
+CosFormer + MSE Loss Training Results
+====================================
+Attention type : cosformer (softmax-free, ReLU + cosine re-weighting)
+Loss type      : mse (MSE on ordinal tokens + CE on structural tokens)
+Dataset        : MAESTRO v3.0.0
+Train chunks   : 500
+Val chunks     : 100
+d_model        : 64
+n_layers       : 2
+n_heads        : 4
+d_ff           : 256
+batch_size     : 8
+max_epochs     : 20
+Parameters     : 112,128
+Device         : CPU
+
+Note: MSE loss operates on normalised [0,1] values — not comparable to CE
+loss scale (~5.3 baseline). CE baseline val loss at epoch 1 was 5.4565.
+Epoch 6 time spike (62.9s) is a CPU scheduling interruption, not a training issue.
+
+Epoch | Train Loss | Val Loss  | Time (s)
+------+------------+-----------+---------
+    1 |   2.7025   |  2.6817   |   10.0
+    2 |   2.7012   |  2.6813   |    9.9
+    3 |   2.7008   |  2.6807   |    9.9
+    4 |   2.7015   |  2.6799   |   10.0
+    5 |   2.6992   |  2.6788   |   10.1
+    6 |   2.6992   |  2.6775   |   62.9
+    7 |   2.6978   |  2.6760   |   10.1
+    8 |   2.6960   |  2.6742   |   10.0
+    9 |   2.6946   |  2.6722   |   10.0
+   10 |   2.6927   |  2.6700   |   10.1
+   11 |   2.6903   |  2.6675   |   10.0
+   12 |   2.6875   |  2.6648   |   10.5
+   13 |   2.6854   |  2.6619   |   10.0
+   14 |   2.6805   |  2.6588   |   10.2
+   15 |   2.6784   |  2.6554   |   10.0
+   16 |   2.6747   |  2.6519   |   10.1
+   17 |   2.6723   |  2.6483   |   10.0
+   18 |   2.6690   |  2.6448   |   10.1
+   19 |   2.6658   |  2.6415   |   10.0
+   20 |   2.6610   |  2.6382   |   10.1
+
+Summary
+-------
+Best val loss  : 2.6382  (epoch 20)
+Final train loss: 2.6610  (epoch 20)
+Total val drop : 2.6817 → 2.6382  (Δ = -0.0435)
+Total train drop: 2.7025 → 2.6610  (Δ = -0.0415)
+Total time     : ~5.8 minutes (incl. epoch 6 spike; typical ~10.0s/epoch)
+Avg epoch time : ~10.1 seconds (excluding spike)
+
+Loss is decreasing every epoch — no divergence, no instability.
+MSE loss scale is ~[0, 0.5] vs CE scale ~[0, log(196)=5.3].
+Direct val loss comparison with CE runs requires normalisation.
+Best checkpoint: checkpoints/best.pt

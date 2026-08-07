@@ -1,0 +1,4 @@
+config,checkpoint_epoch,val_loss,test_loss,test_minus_val_gap,val_perplexity,test_perplexity,n_test_chunks,eval_seconds
+gaussian_ce,100,5.0361,5.0457,0.0096,153.87,155.35,11451,112.9
+cosine_ce,100,5.0917,5.0986,0.0069,162.67,163.78,11451,48.8
+cosformer_ce,100,5.0254,5.0347,0.0093,152.23,153.66,11451,89.2
