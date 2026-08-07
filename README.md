@@ -7,7 +7,7 @@ functions, evaluating training efficiency and out-of-sample performance.
 This is a research project by Sahar Fatemi and Daniel Armani. The full academic
 writeup is in [`paper/manuscript.md`](paper/manuscript.md); a detailed,
 chronological log of every experiment, bug fix, and finding is in
-[`CLAUDE.md`](CLAUDE.md) and [`HISTORY.md`](HISTORY.md).
+[`HISTORY.md`](HISTORY.md).
 
 ## Research Goal
 
@@ -80,10 +80,9 @@ music_transformer/
 │                                # NTL loss-function comparison
 ├── paper/
 │   └── manuscript.md           # Full academic writeup (in progress)
-├── CLAUDE.md                   # Detailed project log: setup, architecture,
-│                                # every bug fixed, every experiment phase
-└── HISTORY.md                  # Chronological change log from the
-                                 # rogue-dimension work onward
+└── HISTORY.md                  # Detailed, chronological project log:
+                                 # setup, architecture, every bug fixed,
+                                 # every experiment phase and finding
 ```
 
 ## Dataset — MAESTRO v3.0.0
